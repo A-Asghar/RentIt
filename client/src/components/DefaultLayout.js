@@ -74,7 +74,7 @@ function DefaultLayout(props) {
       <div className="footer text-center">
       <hr />
 
-           <p>Desgined and Developed By</p>
+           <p>Designed and Developed By</p>
 
            
 
