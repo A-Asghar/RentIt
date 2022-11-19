@@ -78,7 +78,7 @@ function DefaultLayout(props) {
 
            
 
-           <p>Huzaifa</p>
+           <p>Huzaifa Asif</p>
           
       </div>
     </div>
