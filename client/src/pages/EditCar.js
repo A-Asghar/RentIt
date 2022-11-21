@@ -13,6 +13,7 @@ function EditCar({ match }) {
   useEffect(() => {
     if (cars.length == 0) {
       dispatch(getAllCars());
+      console.log(cars);
     } else {
       settotalcars(cars);
       setcar(cars.find((o) => o._id == match.params.carid));

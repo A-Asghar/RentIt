@@ -27,7 +27,7 @@ function App() {
         <ProtectedRoute path='/userbookings' exact component={UserBookings} />
         <ProtectedRoute path='/userbookingsadmin' exact component={Guard2} />
         <ProtectedRoute path='/addcar' exact component={Guard3} />
-        <ProtectedRoute path='/editcar/:carid' exact component={Guard4} />
+        <ProtectedRoute path='/editcar/:carid' exact component={EditCar} />
         <ProtectedRoute path='/admin' exact component={Guard1} />
 
       </BrowserRouter>
@@ -68,16 +68,6 @@ const Guard3 = () => {
     return <Redirect to="/" replace />;
   }
   return <AddCar />;
-};
-
-const Guard4 = () => {
-  const user = JSON.parse(localStorage.getItem('user'))
-
-  console.log(user);
-  if (!user.isAdmin) {
-    return <Redirect to="/" replace />;
-  }
-  return <EditCar />;
 };
 
 
