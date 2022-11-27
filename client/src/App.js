@@ -27,7 +27,7 @@ function App() {
         <ProtectedRoute path='/userbookings' exact component={UserBookings} />
         <ProtectedRoute path='/userbookingsadmin' exact component={Guard2} />
         <ProtectedRoute path='/addcar' exact component={Guard3} />
-        <ProtectedRoute path='/editcar/:carid' exact component={Guard4} />
+        <ProtectedRoute path='/editcar/:carid' exact component={EditCar} />
         <ProtectedRoute path='/admin' exact component={Guard1} />
 
       </BrowserRouter>
