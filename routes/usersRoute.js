@@ -21,6 +21,7 @@ router.post("/login", async(req, res) => {
   
 });
 
+
 router.post("/register", async(req, res) => {
 
     
@@ -35,7 +36,21 @@ router.post("/register", async(req, res) => {
 
 });
 
+router.post("/edituser", async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.body._id });
+    user.username = req.body.username;
+    user.email = req.body.email;
+    user.password = req.body.password;
+    user.address = req.body.address;
 
+    await user.save();
+
+    res.send(user);
+  } catch (error) {
+    return res.status().json(error);
+  }
+});
 router.get("/get/:id", async (req, res) => {
     try {
       const user = await User.findById(req.params.id);

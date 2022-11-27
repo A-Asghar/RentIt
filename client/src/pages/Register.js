@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Form, Input } from "antd";
 import { Link } from "react-router-dom";
 import {useDispatch , useSelector} from 'react-redux'
-import { userRegister } from "../redux/actions/userActions";
+import { userRegister,userLogin } from "../redux/actions/userActions";
 import AOS from 'aos';
 import Spinner from '../components/Spinner';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -13,6 +13,7 @@ function Register() {
   const {loading} = useSelector(state=>state.alertsReducer)
     function onFinish(values) {
            dispatch(userRegister(values))
+           dispatch(userLogin(values))
            console.log(values)
     }
 
@@ -43,6 +44,13 @@ function Register() {
             <Form.Item
               name="email"
               label="Email"
+              rules={[{ required: true }]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="address"
+              label="Address"
               rules={[{ required: true }]}
             >
               <Input />

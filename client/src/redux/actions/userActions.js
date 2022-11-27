@@ -28,10 +28,10 @@ export const userRegister=(reqObj)=>async dispatch=>{
     try {
         const response = await axios.post('/api/users/register' , reqObj)
         message.success('Registration successfull')
-        setTimeout(() => {
-            window.location.href='/login'
+        // setTimeout(() => {
+        //     window.location.href='/'
          
-        }, 500);
+        // }, 500);
        
         dispatch({type: 'LOADING' , payload:false})
         
@@ -40,4 +40,24 @@ export const userRegister=(reqObj)=>async dispatch=>{
         message.error('Something went wrong')
         dispatch({type: 'LOADING' , payload:false})
     }
+}
+export const editUser=(reqObj)=>async dispatch=>{
+
+    dispatch({type: 'LOADING' , payload:true})
+
+    try {
+        const response = await axios.post('/api/users/edituser' , reqObj)
+        console.log(response.data)
+         localStorage.setItem('user' , JSON.stringify(response.data))
+         dispatch({type: 'LOADING' , payload:false})
+         message.success('Your details have been updated successfully')
+         setTimeout(() => {
+            window.location.href='/'
+         }, 500);
+    } catch (error) {
+        console.log(error)
+        dispatch({type: 'LOADING' , payload:false})
+    }
+      
+
 }

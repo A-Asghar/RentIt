@@ -11,6 +11,7 @@ import UserBookingsAdmin from './pages/UserBookingsAdmin';
 import AddCar from './pages/AddCar';
 import AdminHome from './pages/AdminHome';
 import EditCar from './pages/EditCar';
+import EditProfile from './pages/userProfile'
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
         <ProtectedRoute path='/addcar' exact component={Guard3} />
         <ProtectedRoute path='/editcar/:carid' exact component={EditCar} />
         <ProtectedRoute path='/admin' exact component={Guard1} />
+        <ProtectedRoute path='/profile' exact component={EditProfile} />
+
 
       </BrowserRouter>
 

@@ -7,7 +7,12 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
       type: Boolean,
       default: false
-    }, 
+    },
+    address: {
+      type: String,
+      default: ""
+    },
+
 })
 
 const userModel = mongoose.model('users1' , userSchema)
