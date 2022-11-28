@@ -34,6 +34,19 @@ function DefaultLayout(props) {
         </Menu.Item>
         : null
     }
+
+{
+      user.isAdmin ? 
+          <Menu.Item>
+          <a
+           
+            href="/userbookingsadmin"
+          >
+            All Bookings
+          </a>
+        </Menu.Item>
+        : null
+    }
     
     <Menu.Item>
           <a
