@@ -4,7 +4,6 @@ import { useDispatch , useSelector } from 'react-redux'
 import DefaultLayout from '../components/DefaultLayout'
 import Spinner from '../components/Spinner'
 import { addCar } from '../redux/actions/carsActions'
-import UploadImageToS3WithReactS3 from '../components/UploadImageToS3WithReactS3'
 import { uploadFile } from 'react-s3';
 
 const S3_BUCKET ='rentitwebapp';
