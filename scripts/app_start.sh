@@ -1,5 +1,7 @@
 #!/bin/bash
-cd /home/ec2-user/server/src
+cd /home/ec2-user/server
+npm start
+cd client
 npm start
 pm2 start npm --name "rentitapp" -- start
 pm2 startup
