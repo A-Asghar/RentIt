@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /home/ec2-user/server
-npm start
+node server.js
 cd client
 npm start
 pm2 start npm --name "rentitapp" -- start
