@@ -4,7 +4,7 @@ const bookingSchema = new mongoose.Schema({
 
 
       car : {type : mongoose.Schema.Types.ObjectID , ref:'cars'},
-      user : {type : mongoose.Schema.Types.ObjectID , ref:'users'},
+      user : {type : mongoose.Schema.Types.ObjectID , ref:'users1'},
       bookedTimeSlots : {
           from : {type : String} ,
           to : {type : String}
