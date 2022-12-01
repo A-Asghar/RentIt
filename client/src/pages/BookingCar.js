@@ -48,6 +48,7 @@ function BookingCar({ match }) {
   
 
   function onToken(token){
+    console.log(token);
     const reqObj = {
         token,
         user: JSON.parse(localStorage.getItem("user"))._id,
