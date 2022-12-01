@@ -6,10 +6,10 @@ import Spinner from '../components/Spinner'
 import { addCar } from '../redux/actions/carsActions'
 import { uploadFile } from 'react-s3';
 
-const S3_BUCKET ='rentitwebapp';
-const REGION ='ap-south-1';
-const ACCESS_KEY ='AKIAYTMB5AL65CJHKM74';
-const SECRET_ACCESS_KEY ='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';
+const S3_BUCKET ='rentits3bucket';
+const REGION ='us-east-1';
+const ACCESS_KEY ='AKIAUP2VQFJZV2OGJBFW';
+const SECRET_ACCESS_KEY ='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';
 
 const config = {
     bucketName: S3_BUCKET,
