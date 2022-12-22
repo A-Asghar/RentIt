@@ -45,6 +45,14 @@ p{
   padding: 5px 15px !important;
   outline: none !important;
 }
+.btn2{
+  box-shadow: none !important;
+  background-color : white !important;
+  color: orangered !important;
+  border: 1px solid orangered !important;
+  height: 32px;
+  outline: none !important;
+}
 .bt1:focus{
   border: none;
 }

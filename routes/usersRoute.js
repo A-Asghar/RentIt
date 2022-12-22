@@ -1,15 +1,20 @@
 const express = require("express");
 const router = require("express").Router();
 const User = require("../models/userModel")
-
+const CryptoJS = require("crypto-js");
 
 router.post("/login", async(req, res) => {
 
       const {username , password} = req.body
-
+      
       try {
-          const user = await User.findOne({username , password})
-          if(user) {
+          const user = await User.findOne({username})
+          var decryptedPassword = CryptoJS.AES.decrypt(
+            user.password,
+            "rentacar"
+          );
+          const OriginalPassword = decryptedPassword.toString(CryptoJS.enc.Utf8);
+          if(user && password == OriginalPassword) {
               res.send(user)
           }
           else{
@@ -27,7 +32,13 @@ router.post("/register", async(req, res) => {
     
 
     try {
+
+       
         const newuser = new User(req.body)
+        newuser.password = CryptoJS.AES.encrypt(
+          req.body.password,
+          "rentacar"
+        ).toString()
         await newuser.save()
         res.send('User registered successfully')
     } catch (error) {

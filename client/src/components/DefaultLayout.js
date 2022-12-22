@@ -32,7 +32,7 @@ function DefaultLayout(props) {
               Admin
             </a>
           </Menu.Item>
-          : null
+          : <button> login </button>
       }
 
       {
@@ -76,7 +76,7 @@ function DefaultLayout(props) {
 
               {user ? <Dropdown overlay={menu} placement="bottomCenter">
                 <Button>{user.username}</Button>
-              </Dropdown> : null}
+              </Dropdown> : <button className="btn1 mt-2" > <Link to='/login'>login</Link> </button>}
             </div>
           </Col>
         </Row>

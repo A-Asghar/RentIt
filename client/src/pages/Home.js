@@ -2,7 +2,7 @@ import React , {useState,useEffect} from 'react'
 import { useSelector , useDispatch } from 'react-redux'
 import DefaultLayout from '../components/DefaultLayout'
 import { getAllCars } from '../redux/actions/carsActions'
-import { Col, Row , Divider , DatePicker, Checkbox} from 'antd'
+import { Col, Row , Divider , DatePicker, Checkbox, Form , Input} from 'antd'
 import {Link} from 'react-router-dom'
 import Spinner from '../components/Spinner';
 import moment from 'moment'
@@ -23,13 +23,23 @@ function Home() {
         setTotalcars(cars)
         
     }, [cars])
+    function onFinish(values){
+        var temp=[]
 
+            for(var car of cars){
+                 if(car.name.toLowerCase().indexOf(values.search.toLowerCase()) !== -1){
+                    temp.push(car)
+                 }
+            }
+            setTotalcars(temp)
+
+    }
 
     function setFilter(values){
 
         var selectedFrom = moment(values[0] , 'MMM DD yyyy HH:mm')
         var selectedTo = moment(values[1] , 'MMM DD yyyy HH:mm')
-
+            console.log(selectedFrom)
         var temp=[]
 
         for(var car of cars){
@@ -73,9 +83,20 @@ function Home() {
                  <Col lg={20} sm={24} className='d-flex justify-content-left'>
 
                      <RangePicker showTime={{format: 'HH:mm'}} format='MMM DD yyyy HH:mm' onChange={setFilter}/>
-                 
+                     
                  </Col>
+                <Col lg={20} sm={24} className='d-flex justify-content-left'>
+                <Form style={{ display: 'flex' }} layout='horizontal' onFinish={onFinish}>
+                         <hr />
+                         <Form.Item name='search' >
+                             <Input/>
+                         </Form.Item>
+                         <button className='btn2'>Search</button>
 
+                         <hr />                    
+
+                    </Form>
+                </Col>
              </Row>
 
               {loading == true && (<Spinner/>)}
