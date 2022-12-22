@@ -111,8 +111,11 @@ function EditCar({ match }) {
               >
                 <Input />
               </Form.Item>
+              <div className="text-left"><button type="button" onClick={()=>setSelectedFile(car.image)}>Use existing image</button><br></br> OR</div>
+              
               <Form.Item  label='Add Image'>
                            <input type="file" onChange={handleFileInput}/>
+                           
                            {selectedFile}
                            </Form.Item>
               <div className="text-right">
