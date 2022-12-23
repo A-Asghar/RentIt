@@ -32,7 +32,7 @@ function DefaultLayout(props) {
               Admin
             </a>
           </Menu.Item>
-          : <button> login </button>
+          : null
       }
 
       {

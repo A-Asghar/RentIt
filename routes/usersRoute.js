@@ -52,7 +52,10 @@ router.post("/edituser", async (req, res) => {
     const user = await User.findOne({ _id: req.body._id });
     user.username = req.body.username;
     user.email = req.body.email;
-    user.password = req.body.password;
+    user.password = CryptoJS.AES.encrypt(
+      req.body.password,
+      "rentacar"
+    ).toString();
     user.address = req.body.address;
 
     await user.save();

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
 import Spinner from "../components/Spinner";
 import { editUser } from "../redux/actions/userActions";
+const CryptoJS = require("crypto-js");
+
 
 function EditProfile({ match }) {
 //  const { users } = useSelector((state) => state.carsReducer);
@@ -63,10 +65,13 @@ function EditProfile({ match }) {
               <Form.Item
                 name="password"
                 label="New password"
-                initialValue={user.password}
+                initialValue={CryptoJS.AES.decrypt(
+                  user.password,
+                  "rentacar"
+                ).toString(CryptoJS.enc.Utf8)}
                 rules={[{ required: false }]}
               >
-                <Input />
+                <Input type='password'/>
               </Form.Item>
               <Form.Item
                 name="address"
